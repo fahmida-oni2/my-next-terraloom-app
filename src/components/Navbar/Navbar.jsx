@@ -30,7 +30,7 @@ export default function Navbar() {
         </Link>
       </li>
       <li>
-        <Link href="/allKits" className={getLinkClasses("/allKits")}>
+        <Link href="/all-kits" className={getLinkClasses("/allKits")}>
           All Kits
         </Link>
       </li>
