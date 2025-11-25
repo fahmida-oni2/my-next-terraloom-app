@@ -13,7 +13,6 @@ import {
 import "./Navbar.css";
 export default function Navbar() {
   const {  user } = useUser();
-  console.log(user)
   const links = (
     <>
       <li>
@@ -22,7 +21,7 @@ export default function Navbar() {
         </Link>
       </li>
       <li>
-        <Link href="/kits" className="m-2">
+        <Link href="/allKits" className="m-2">
           All Kits
         </Link>
       </li>
