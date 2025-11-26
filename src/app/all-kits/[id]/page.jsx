@@ -70,7 +70,7 @@ export default async function Page(props) {
                         </div>
                         <div className="mr-10 flex gap-2 justify-center items-center">
                             <p className="font-bold text-2xl text-center"> Price:</p>
-                            <h1 className="font-extrabold text-2xl text-center">{price}</h1>
+                            <h1 className="font-extrabold text-2xl text-center">{price} TK</h1>
                         </div>
                     </div>
                     

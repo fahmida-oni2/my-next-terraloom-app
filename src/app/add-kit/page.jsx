@@ -1,50 +1,57 @@
 "use client";
 import Loading from "@/components/Loading/Loading";
 import { useUser } from "@clerk/nextjs";
-import React from "react";
+import { useRouter } from "next/navigation";
+import React, { useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
-const stockStatus = [
-  { value: "In Stock", label: "In Stock" },
-  { value: "Low Stock", label: "Low Stock" },
-  { value: "Out of Stock", label: "Out of Stock" },
-];
+
 export default function page() {
   const { isLoaded, user } = useUser();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (isLoaded && user === null) {
+      router.push("/login");
+    }
+  }, [isLoaded, user, router]);
+
   if (!isLoaded) {
     return <Loading />;
   }
+
+  if (isLoaded && user === null) {
+    return null;
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     let totalKits = 0;
     try {
-        const countResponse = await fetch('http://localhost:5000/all-kits'); 
-        const existingKits = await countResponse.json();
-        
-        if (Array.isArray(existingKits)) {
-            totalKits = existingKits.length;
-        }
+      const countResponse = await fetch("http://localhost:5000/all-kits");
+      const existingKits = await countResponse.json();
 
+      if (Array.isArray(existingKits)) {
+        totalKits = existingKits.length;
+      }
     } catch (error) {
-        console.error("Error fetching kit count:", error);
-        toast.error("Failed to determine kit priority. Submission cancelled.");
-        return; 
+      console.error("Error fetching kit count:", error);
+      toast.error("Failed to determine kit priority. Submission cancelled.");
+      return;
     }
     const newPriority = totalKits + 1;
     const formData = {
       title: e.target.name.value,
       category: e.target.category.value,
       creator_name: user.fullName || user.username || "Anonymous",
-       creator_email:
-       user.primaryEmailAddress?.emailAddress || "N/A", 
-        stock_status:e.target.stock.value, 
-        image_url: e.target.imageLink.value,
-        created_date: new Date().toISOString(),
+      creator_email: user.primaryEmailAddress?.emailAddress || "N/A",
+      stock_status: e.target.stock.value,
+      image_url: e.target.imageLink.value,
+      created_date: new Date(),
       description: e.target.description.value,
-      story:e.target.story.value,
-      price:parseFloat(e.target.price.value),
-     priority:newPriority
-     
+      story: e.target.story.value,
+      price: parseFloat(e.target.price.value),
+      priority: newPriority,
     };
     fetch("http://localhost:5000/all-kits", {
       method: "POST",
@@ -54,17 +61,20 @@ export default function page() {
       body: JSON.stringify(formData),
     })
       .then((res) => res.json())
-     .then(data=> {
-        if (data.success && data.insertedId) { 
+      .then((data) => {
+        if (data.success && data.insertedId) {
           toast.success(`Kit has been added successfully!`);
           e.target.reset();
+          router.push("/all-kits")
+
         } else {
-          toast.error("Failed to add kit. Server responded, but insertion failed.");
+          toast.error(
+            "Failed to add kit. Server responded, but insertion failed."
+          );
           console.error("Server response data:", data);
         }
       })
       .catch((err) => {
-       
         toast.error("Error . Please try again.");
       });
   };
@@ -91,7 +101,7 @@ export default function page() {
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             />
           </div>
-              {/* Category (Dropdown) */}
+          {/* Category (Dropdown) */}
           <div>
             <label
               htmlFor="category"
@@ -134,7 +144,7 @@ export default function page() {
             />
           </div>
 
-            {/* Story */}
+          {/* Story */}
           <div>
             <label
               htmlFor="story"
@@ -151,8 +161,6 @@ export default function page() {
             />
           </div>
 
-      
-
           {/* Price (Number Input) */}
           <div>
             <label
@@ -161,21 +169,20 @@ export default function page() {
             >
               Price
             </label>
-          <div className="mt-1 flex rounded-md shadow-sm">
-                <span className="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-gray-500 sm:text-sm">
-                  Tk
-                </span>
-                <input
-                  type="number"
-                  id="price"
-                  name="price"
-                  required
-                  min="0"
-                  step="0.01" 
-                  placeholder="550000"
-                  className="block w-full flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                />
-                
+            <div className="mt-1 flex rounded-md shadow-sm">
+              <span className="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-gray-500 sm:text-sm">
+                Tk
+              </span>
+              <input
+                type="number"
+                id="price"
+                name="price"
+                required
+                min="0"
+                step="0.01"
+                placeholder="550000"
+                className="block w-full flex-1 rounded-none rounded-r-md border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+              />
             </div>
           </div>
 
@@ -187,7 +194,7 @@ export default function page() {
             >
               Stock Status:
             </label>
-           <select
+            <select
               id="stock"
               defaultValue={""}
               name="stock"
@@ -197,11 +204,9 @@ export default function page() {
               <option value="" disabled>
                 Select Stock Status
               </option>
-              {stockStatus.map(stock => (
-                <option key={stock.value} value={stock.value}>
-                  {stock.label}
-                </option>
-              ))}
+              <option value="In Stock">In Stock</option>
+              <option value="Low Stock">Low Stock</option>
+              <option value="Out of Stock">Out of Stock</option>
             </select>
           </div>
 
