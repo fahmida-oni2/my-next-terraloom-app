@@ -30,7 +30,7 @@ export default function Navbar() {
         </Link>
       </li>
       <li>
-        <Link href="/all-kits" className={getLinkClasses("/allKits")}>
+        <Link href="/all-kits" className={getLinkClasses("/all-kits")}>
           All Kits
         </Link>
       </li>
@@ -45,8 +45,8 @@ export default function Navbar() {
         </Link>
       </li>
       <li>
-        <Link href="/quiz" className={getLinkClasses("/quiz")}>
-          Quiz
+        <Link href="/my-review" className={getLinkClasses("/my-review")}>
+          Review
         </Link>
       </li>
     </>

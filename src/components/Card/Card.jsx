@@ -34,7 +34,7 @@ export default function Card({kit}) {
         {price} TK
     </button>
    </div>
-   <Link href= {`/all-kits/id`}   className='flex h-10 w-full btn btn-outline gap-2 border-gray-200 text-white bg-gradient-to-r from-[#632EE3] to-[#9F62F2]'>
+   <Link href= {`/all-kits/${_id}`}   className='flex h-10 w-full btn btn-outline gap-2 border-gray-200 text-white bg-gradient-to-r from-[#632EE3] to-[#9F62F2]'>
         View Details
     </Link>
   </div>

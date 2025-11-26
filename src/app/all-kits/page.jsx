@@ -10,11 +10,7 @@ export default async function page() {
                      <p className="text-gray-600 text-center mb-12 animate__animated animate__fadeInUp">Explore All Kits.  </p>
          </div>
       
-           <div  className=''>
-                    {/* {
-                    kits.map(kit => (
-                        <Card key={kit._id} kit={kit}></Card>
-                    ))} */}
+           <div  className='mb-5'>
                     <KitSearching initialKits={kits}></KitSearching>
                 </div>
   
