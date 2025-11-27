@@ -1,4 +1,20 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org ) an e-commerce platform dedicated to Sustainable DIY Kits project named TerraLoom bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+The core mission is to empower creativity with eco-conscious projects that are both rewarding to make and gentle on the Earth.The platform (TerraLoom-Kit-App) serves as a creative community hub where users can: <br>
+
+1.Discover, purchase, and share curated DIY kits.<br>
+2.The kits emphasize sustainability, using materials like FSC-certified wood, recycled plastics, and biodegradable components, along with zero-waste packaging and climate-positive.
+
+
+## Route Summarey:
+1.Home: This is the landing page of the website which give a summary of our website. <br>
+2.All Kits: The main product catalog page to explore and browse all available sustainable DIY kits .<br>
+3.About:Provide the information about the TerraLoom project and its commitment to sustainability .<br>
+4.My Purchase: Provide the user's order history or saved list of kits.<br>
+5.Review:A page for users to view product reviews.<br>
+6.Login/Register—Used to access purchasing features or account management.<br>
+7.Kit Details—Dynamic routes for viewing detailed information about a specific kit.<br>
+After login you will get users information where profile icon show the add and manage kit route.<br>
 
 ## Getting Started
 
