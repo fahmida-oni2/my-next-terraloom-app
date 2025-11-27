@@ -40,6 +40,7 @@ export default async function Page(props) {
     created_date,
     stock_status,
     description,
+    story
   } = data;
 
   return (
@@ -95,8 +96,16 @@ export default async function Page(props) {
               {description}
             </h1>
           </div>
+           <div className="mr-10">
+            <p className="font-semibold italic text-center text-2xl mb-3 border-b-2 border-solid border-b-gray-400">
+              Story
+            </p>
+            <h1 className="font-semibold text-center text-gray-500 italic">
+              {story}
+            </h1>
+          </div>
           <div className="flex justify-center items-center">
-        {/* Replace the static button with the new Client Component */}
+
         <AddToCartButton
           kitData={{
             _id,
