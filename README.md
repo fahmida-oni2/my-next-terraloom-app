@@ -60,3 +60,6 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 **Next.js App: (https://terraloom-kit-app.vercel.app/**
 <br>
 **server link: https://terraloom-kit-api-server.vercel.app/**
+
+**Server Github repository:**
+https://github.com/fahmida-oni2/my-kit-server.git
