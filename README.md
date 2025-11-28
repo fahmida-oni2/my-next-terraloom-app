@@ -17,21 +17,21 @@ The core mission is to empower creativity with eco-conscious projects that are b
 After login you will get users information where profile icon show the add and manage kit route.<br>
 
 **Used Technology:**
-1.Next.js{ <br>
-2.Tailwind CSS{ <br>
-3.Clerk{ <br>
-4.Daisy UI{ <br>
+1.Next.js <br>
+2.Tailwind CSS <br>
+3.Clerk <br>
+4.Daisy UI <br>
 
 **Dependencies:** { <br>
-    "@clerk/nextjs": "^6.35.4",{ <br>
-    "animate.css": "^4.1.1",{ <br>
-    "next": "16.0.3",{ <br>
-    "react": "19.2.0",{ <br>
-    "react-dom": "19.2.0",{ <br>
-    "react-hook-form": "^7.66.1",{ <br>
-    "react-hot-toast": "^2.6.0",{ <br>
-    "react-icons": "^5.5.0",{ <br>
-    "sweetalert2": "^11.26.3",{ <br>
+    "@clerk/nextjs": "^6.35.4", <br>
+    "animate.css": "^4.1.1", <br>
+    "next": "16.0.3", <br>
+    "react": "19.2.0", <br>
+    "react-dom": "19.2.0", <br>
+    "react-hook-form": "^7.66.1", <br>
+    "react-hot-toast": "^2.6.0", <br>
+    "react-icons": "^5.5.0", <br>
+    "sweetalert2": "^11.26.3", <br>
     "swiper": "^12.0.3"
 
 
