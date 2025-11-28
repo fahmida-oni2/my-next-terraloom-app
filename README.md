@@ -1,4 +1,4 @@
-**This is a [Next.js](https://nextjs.org ) an e-commerce platform dedicated to Sustainable DIY Kits project named TerraLoom bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).**
+**This is a [Next.js](https://nextjs.org ) project of an e-commerce platform dedicated to Sustainable DIY Kits project named TerraLoom bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).**
 
 The core mission is to empower creativity with eco-conscious projects that are both rewarding to make and gentle on the Earth.The platform (TerraLoom-Kit-App) serves as a creative community hub where users can: <br>
 
@@ -36,7 +36,8 @@ After login you will get users information where profile icon show the add and m
 
 
 ## Installation 
-
+1.Copy the code link and in a cmd and type git clone and paste the URL <br>
+2. open the folder and follow the instructions :<br>
 First, run the development server:
 
 ```bash
